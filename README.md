@@ -11,7 +11,6 @@ remote sensing products to study water quality.
 
 ``` r
 # remotes::install_github("EDIorg/EDIutils", ref = "cran") # run this once to install EDIutils package
-
 library(EDIutils)
 library(dplyr)
 library(tidyr)
@@ -21,7 +20,7 @@ library(tidyr)
 
 ``` r
 # define which manual chlorophyll measurement to use
-manual_chl_column = "mono_chl_spec"
+manual_chl_column = "correct_chl_fluor"
 # define which lake to analyze
 lake = "ME"
 # define depths of manual chl samples to use
@@ -185,7 +184,7 @@ plot(
   cex.lab = 1.75, cex.axis = 1.75, cex.main = 1.5, cex.sub = 1.5, 
   ylim = Ylim
   )
-points(manChl2016$DOY, manChl2016$mono_chl_spec, col = "black", pch = 19)
+points(manChl2016$DOY, pull(manChl2016[, manual_chl_column]), col = "black", pch = 19)
 points(buoyChl2016$DOY, buoyChl2016$reverse_transform, col = "blue", pch = 19)
 legend(
   "topright", c("MODIS", "Manual", "Buoy"), 
