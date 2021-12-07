@@ -21,7 +21,6 @@ This is an example R workflow of integrating data from the Global Lake Ecologica
 
 ```{r warning=FALSE, message=FALSE}
 # remotes::install_github("EDIorg/EDIutils", ref = "cran") # run this once to install EDIutils package
-
 library(EDIutils)
 library(dplyr)
 library(tidyr)
